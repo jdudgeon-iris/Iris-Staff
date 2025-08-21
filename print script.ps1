@@ -27,6 +27,8 @@ $parsedLogs = $logs | ForEach-Object {
             Printer   = $document.Param5
             Computer = $document.Param4
             Timestamp = $_.TimeCreated
+            Day = $_.TimeCreated.DayOfWeek
+            Month = $_.TimeCreated.Month
         }
     } catch {
         Write-Warning "Failed to parse log entry at $($_.TimeCreated): $_"
